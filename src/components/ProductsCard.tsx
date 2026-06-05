@@ -23,7 +23,7 @@ function ProductsCard() {
         {/* dekstop wok */}
         <button
           onClick={prevSlide}
-          className="hidden lg:block btn rounded-full bg-[#fac9b1] text-utama"
+          className="hidden border-none cursor-pointer hover:opacity-90 lg:block btn rounded-full bg-button text-utama"
         >
           <GrPrevious />
         </button>
@@ -41,7 +41,7 @@ function ProductsCard() {
 
           <div className="flex max-h-90 flex-col items-center bg-[#ffece3] px-5 py-5 text-center lg:h-auto lg:w-full lg:p-10">
             <div className="flex flex-col items-center">
-              <h3 className="font-desc text-[22px] font-bold tracking-wide text-utama lg:text-2xl">
+              <h3 className="font-desc text-[20px] font-bold tracking-wide text-utama lg:text-[22px]">
                 {product.title}
               </h3>
 
@@ -51,14 +51,14 @@ function ProductsCard() {
                 <div className="h-px w-10 bg-utama lg:w-15"></div>
               </div>
 
-              <p className="mt-5 font-par text-[15px] leading-relaxed text-utama lg:mt-4 lg:text-[15px] lg:text-justify">
+              <p className="mt-5 font-par text-[15px] text-utama lg:mt-4 lg:text-[15px] lg:text-justify">
                 {product.description}
               </p>
             </div>
 
-            <div className="mt-6 h-px w-full bg-utama lg:mt-5"></div>
+            <div className="mt-5 h-px w-full bg-utama "></div>
 
-            <div className="mt-auto flex flex-col items-center pt-2 lg:pt-5">
+            <div className="mt-auto flex flex-col items-center  lg:pt-5">
               <div className="flex items-center gap-3">
                 <span className="font-uang text-3xl font-bold text-utama">
                   ${product.price}.00
@@ -69,7 +69,7 @@ function ProductsCard() {
                 </span>
               </div>
 
-              <button className="mt-3 rounded-lg bg-utama px-6 py-3 font-semibold text-white lg:mt-4">
+              <button className="mt-3 rounded-lg bg-utama px-6 py-3 font-semibold text-white lg:mt-3 hover:scale-105 hover:opacity-90">
                 Buy Now
               </button>
             </div>
@@ -79,24 +79,24 @@ function ProductsCard() {
         {/* desktop juga */}
         <button
           onClick={nextSlide}
-          className="hidden lg:block btn rounded-full bg-[#fac9b1] text-utama"
+          className="hidden border-none cursor-pointer hover:opacity-90 lg:block btn rounded-full bg-button text-utama"
         >
           <GrNext />
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* mobile */}
       <div className="mt-5 flex justify-center gap-5 lg:hidden">
         <button
           onClick={prevSlide}
-          className="btn rounded-full bg-[#fac9b1] text-utama"
+          className="btn border-none cursor-pointer hover:opacity-90 rounded-full bg-button text-utama"
         >
           <GrPrevious />
         </button>
 
         <button
           onClick={nextSlide}
-          className="btn rounded-full bg-[#fac9b1] text-utama"
+          className="btn border-none cursor-pointer hover:opacity-90 rounded-full bg-button text-utama"
         >
           <GrNext />
         </button>
