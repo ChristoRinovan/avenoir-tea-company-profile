@@ -4,7 +4,7 @@ export type NavMenu = {
   children?: NavMenu[];
 };
 
-export const NavMenus: NavMenu[] = [
+export const navMenus: NavMenu[] = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Products", path: "/products" },

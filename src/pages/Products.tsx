@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero";
 import SectionHeader from "../components/SectionHeader";
-import ServiceCard from "../components/ServiceCard";
+import ProductsCard from "../components/ProductsCard";
+
 
 function Products() {
   return (
@@ -10,7 +11,7 @@ function Products() {
         title="Fine Tea Collection"
         description="Exceptional Blends, Distinctive Character"
       />
-      <ServiceCard />
+      <ProductsCard />
     </main>
   );
 }
