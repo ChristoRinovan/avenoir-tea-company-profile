@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function Layout() {
   return (
-    <>
+      <div className="min-h-screen bg-white">
       <Navbar />
 
       <main>
@@ -12,7 +12,8 @@ function Layout() {
       </main>
 
       <Footer />
-    </>
+      </div>
+    
   );
 }
 
