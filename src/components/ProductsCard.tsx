@@ -10,11 +10,11 @@ function ProductsCard() {
   const totalPage = productsCard.length;
 
   const nextSlide = () => {
-    setCurrentPage((currentPage + 1) % totalPage);
+    setCurrentPage((prev:number) => (prev + 1) % totalPage);
   };
 
   const prevSlide = () => {
-    setCurrentPage((currentPage - 1 + totalPage) % totalPage);
+    setCurrentPage((prev:number) => (prev - 1 + totalPage) % totalPage);
   };
 
   return (
@@ -45,7 +45,7 @@ function ProductsCard() {
                 {product.title}
               </h3>
 
-              <div className="mt-2 flex items-center gap-2 lg:mt-3">
+              <div className="mt-2 flex items-center gap-2 lg:mt-2">
                 <div className="h-px w-10 bg-utama lg:w-15"></div>
                 <GiThreeLeaves className="text-utama" />
                 <div className="h-px w-10 bg-utama lg:w-15"></div>
