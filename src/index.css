@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cagliostro&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
 
 @import "tailwindcss";
 @plugin "daisyui";
@@ -13,6 +14,7 @@
   --font-title: "Cagliostro", sans-serif;
   --font-desc: "Fraunces", serif;
   --font-par: "Noto Sans JP", sans-serif;
+  --font-uang: "Cinzel Decorative", serif;
 
   --color-utama: #372015;
 }

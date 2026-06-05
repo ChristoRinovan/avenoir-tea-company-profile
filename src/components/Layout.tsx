@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function Layout() {
   return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white overflow-hidden">
       <Navbar />
 
       <main>

@@ -6,10 +6,14 @@ import { MdMenu } from "react-icons/md";
 function Navbar() {
   return (
     <header className="sticky top-0 z-50 font-navbar font-semibold">
-      <div className="navbar bg-[#ffece3] shadow-sm">
+      <div className="navbar bg-[#ffece3] shadow-sm px-5">
         <div className="navbar-start">
           <div className="dropdown lg:hidden">
-            <div tabIndex={0} role="button" className="btn btn-ghost">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost text-utama font-bold"
+            >
               <MdMenu />
             </div>
 
@@ -40,14 +44,17 @@ function Navbar() {
 
           <Link
             to="/"
-            className="ml-5 my-auto hidden text-4xl text-shadow-lg/10 text-[#372015] font-brand font-bold lg:flex hover:scale-115 transition-all duration-700"
+            className=" my-auto hidden text-4xl text-shadow-lg/5 text-utama font-brand font-bold lg:flex hover:scale-115 transition-all duration-700"
           >
             Avenoir
           </Link>
         </div>
 
         <div className="navbar-center lg:hidden">
-          <Link to="/" className="text-2xl text-shadow-lg/10 text-[#372015] font-brand font-bold">
+          <Link
+            to="/"
+            className="text-2xl text-shadow-lg/10 text-[#372015] font-brand font-bold"
+          >
             Avenoir
           </Link>
         </div>
@@ -58,18 +65,27 @@ function Navbar() {
               <li key={item.name}>
                 {item.children ? (
                   <details>
-                    <summary className="lg:hover:bg-[#372015]/50">{item.name}</summary>
+                    <summary className="lg:hover:bg-[#372015]/50">
+                      {item.name}
+                    </summary>
                     <ul className="bg-[#ffece3] rounded-box w-48 p-2 shadow lg:bg-[#372015]/50 ">
                       {item.children.map((child) => (
-                        <li key={child.name} >
-                          <Link to={child.path!} className="lg:hover:bg-[#372015]/50">{child.name}</Link>
+                        <li key={child.name}>
+                          <Link
+                            to={child.path!}
+                            className="lg:hover:bg-[#372015]/50"
+                          >
+                            {child.name}
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </details>
                 ) : (
-                    // button buat ke masing-masing komponen wok
-                  <Link to={item.path!} className="lg:hover:bg-[#372015]/50">{item.name}</Link>
+                  // button buat ke masing-masing komponen wok
+                  <Link to={item.path!} className="lg:hover:bg-[#372015]/50">
+                    {item.name}
+                  </Link>
                 )}
               </li>
             ))}
@@ -77,9 +93,9 @@ function Navbar() {
         </div>
 
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-primary">
-            Login
-          </Link>
+          <button className=" my-auto hidden  text-utama font-brand font-bold lg:flex hover:scale-115 transition-all duration-700">
+            <Link to="/login">Login</Link>
+          </button>
         </div>
       </div>
     </header>
