@@ -9,7 +9,7 @@ function SectionHeader({ title, description }: SectionHeaderProps) {
       <h2 className="font-title text-[16px] opacity-80 lg:text-xl font-semibold italic  tracking-widest text-[#b07051]">
         {title}
       </h2>
-      <p className="font-desc font-bold text-2xl lg:text-3xl text-utama text-center">
+      <p className="font-desc font-bold text-2xl lg:text-3xl text-utama text-center max-w-250">
         "{description}"
       </p>
       <div className="flex items-center gap-5">

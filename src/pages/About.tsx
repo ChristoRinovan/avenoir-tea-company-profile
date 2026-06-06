@@ -1,4 +1,3 @@
-
 import CompanyOverview from "../components/CompanyOverview";
 import PageHero from "../components/PageHero";
 
@@ -10,8 +9,9 @@ function About() {
   return (
     <main>
       <PageHero title="About Us" />
-      <CompanyOverview button={false} />
       <FounderSection />
+      <CompanyOverview button={false} />
+
       <VisionMissionCard />
     </main>
   );

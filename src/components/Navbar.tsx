@@ -68,7 +68,7 @@ function Navbar() {
                     <summary className="lg:hover:bg-utama/50">
                       {item.name}
                     </summary>
-                    <ul className="bg-second rounded-box w-48 p-2 shadow lg:bg-utama/50 ">
+                    <ul className="bg-white rounded-box w-48 p-2 shadow-lg ">
                       {item.children.map((child) => (
                         <li key={child.name}>
                           <Link
@@ -93,7 +93,7 @@ function Navbar() {
         </div>
 
         <div className="navbar-end">
-          <button className=" my-auto hidden  text-utama font-brand font-bold lg:flex hover:scale-115 transition-all duration-700">
+          <button className=" my-auto   text-utama font-brand font-bold lg:flex hover:scale-115 transition-all duration-700">
             <Link to="/login">Login</Link>
           </button>
         </div>
