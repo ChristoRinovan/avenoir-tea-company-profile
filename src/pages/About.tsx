@@ -1,6 +1,6 @@
 import CompanyOverview from "../components/CompanyOverview";
 import PageHero from "../components/PageHero";
-import SectionHeader from "../components/SectionHeader";
+
 import VisionMissionCard from "../components/VisionMissionCard";
 
 function About() {
