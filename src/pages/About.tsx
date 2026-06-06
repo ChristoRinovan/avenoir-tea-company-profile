@@ -1,12 +1,14 @@
+import CompanyOverview from "../components/CompanyOverview";
 import PageHero from "../components/PageHero";
 import SectionHeader from "../components/SectionHeader";
+import VisionMissionCard from "../components/VisionMissionCard";
 
 function About() {
   return (
     <main>
       <PageHero title="About Us" />
-      <SectionHeader title="Our Philosophy" description="Rooted In Heritage, Crafted For Today
-"/>
+      <CompanyOverview button={false} />
+      <VisionMissionCard />
     </main>
   );
 }
