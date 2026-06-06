@@ -1,6 +1,7 @@
+import FounderCard from "@/components/FounderCard";
 import PageHero from "../components/PageHero";
 import SectionHeader from "../components/SectionHeader";
-import TeamSection from "../components/TeamCard";
+import TeamCard from "../components/TeamCard";
 
 function Teams() {
   return (
@@ -11,7 +12,14 @@ function Teams() {
         description="The People Behind Every Blend
 "
       />
-      <TeamSection/>
+      <FounderCard
+        name="Ivan Widi"
+        position="Founder & Chief Executive Officer"
+        bio=" The visionary behind Avenoir Tea, leading the brand with a passion for
+      premium tea craftsmanship, elegant experiences, and timeless product
+      quality."
+      />
+      <TeamCard />
     </main>
   );
 }
