@@ -1,26 +1,20 @@
 import homeimg from "../assets/homepage.webp";
+import CompanyOverview from "../components/CompanyOverview";
+import ProductsCard from "../components/ProductsCard";
 import SectionHeader from "../components/SectionHeader";
-import TestimonialCard from "../components/TestimonialCard";
+import TestimonialSection from "../components/TestimonialSection";
 
 function Home() {
   return (
     <main>
       <img src={homeimg} alt="" className="overflow-hidden" />
-      <SectionHeader
-        title="Avenoir Tea"
-        description="The Art Of Timeless Tea"
-      />
-      <div>
-        <div className="flex flex-col items-center justify-center lg:flex-row py-5 gap-2 lg:gap-5 bg-utama">
-          <div className="hidden lg:block h-px w-10 bg-second lg:w-50"></div>
-          <div className="font-desc font-bold text-xl lg:text-2xl text-white text-center shadow-2xl">
-            Stories Behind Every Cup
-          </div>
-          <div className="h-px w-80 bg-second lg:w-50"></div>
-        </div>
-
-        <TestimonialCard />
+      <CompanyOverview />
+      <div className="lg:w-full lg:h-full lg:gap-10 flex flex-col items-center justify-between overflow-hidden my-10">
+        <SectionHeader title="" description="Want to elevate every tea moment?" />
+        <ProductsCard />
       </div>
+
+      <TestimonialSection />
     </main>
   );
 }

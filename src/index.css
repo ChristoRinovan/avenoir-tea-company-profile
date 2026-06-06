@@ -19,6 +19,7 @@
   --color-utama: #372015;
   --color-button: #966b56;
   --color-second: #ffece3;
+  --color-third: #f0c1aa;
 }
 @keyframes slideIn {
   from {

@@ -5,7 +5,7 @@ type SectionHeaderProps = {
 
 function SectionHeader({ title, description }: SectionHeaderProps) {
   return (
-    <div className="flex flex-col items-center py-5 lg:py-10 gap-4 px-10 lg:px-0">
+    <div className="flex flex-col items-center py-5 lg:py-5 gap-4 px-10 lg:px-0">
       <h2 className="font-title text-[16px] opacity-80 lg:text-xl font-semibold italic  tracking-widest text-[#b07051]">
         {title}
       </h2>
