@@ -1,18 +1,29 @@
-
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getBlogs } from "@/services/blogService";
 import type { Blog } from "@/types/blog";
 
+function formatPublishDate(dateValue: Blog["publishDate"]) {
+  const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
+
+  return date.toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 function BlogArticle() {
-  const [blogArticles,setBlogArticles] = useState<Blog[]>([])
-  useEffect(()=>{
+  const [blogArticles, setBlogArticles] = useState<Blog[]>([]);
+
+  useEffect(() => {
     async function fetchBlogs() {
       const data = await getBlogs();
-      setBlogArticles(data)
-      // console.log(data)
+      setBlogArticles(data);
     }
-    fetchBlogs()
-  },[])
+
+    fetchBlogs();
+  }, []);
+
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-5 py-10">
       {blogArticles.map((item) => (
@@ -22,13 +33,13 @@ function BlogArticle() {
               {item.title}
             </h2>
 
-            <h3 className="mb-5 text-sm font-par  text-utama/70 leading-relaxed">
+            <h3 className="mb-5 text-sm font-par text-utama/70 leading-relaxed">
               {item.excerpt}
             </h3>
 
             <div className="flex flex-row font-navbar justify-between gap-5 text-sm text-utama/60">
               <h4>{item.author}</h4>
-              <p>{item.publishDate}</p>
+              <p>{formatPublishDate(item.publishDate)}</p>
             </div>
           </div>
 
@@ -39,7 +50,7 @@ function BlogArticle() {
               click to view article . . .
             </div>
 
-            <div className="collapse-content space-y-4 lg:px-15 px-10 ">
+            <div className="collapse-content space-y-4 lg:px-15 px-10">
               <h2 className="text-xl font-brand font-semibold text-utama text-center">
                 "{item.title}"
               </h2>
