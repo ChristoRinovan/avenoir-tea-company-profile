@@ -1,10 +1,22 @@
-import { blogArticles } from "@/data/BlogArticle";
+
+import { useState, useEffect } from "react";
+import { getBlogs } from "@/services/blogService";
+import type { Blog } from "@/types/blog";
 
 function BlogArticle() {
+  const [blogArticles,setBlogArticles] = useState<Blog[]>([])
+  useEffect(()=>{
+    async function fetchBlogs() {
+      const data = await getBlogs();
+      setBlogArticles(data)
+      // console.log(data)
+    }
+    fetchBlogs()
+  },[])
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-5 py-10">
       {blogArticles.map((item) => (
-        <div key={item.id} className="w-full">
+        <div key={item.objectId} className="w-full">
           <div className="rounded-2xl border border-base-300 bg-second p-6 shadow-md">
             <h2 className="mb-3 text-2xl font-semibold text-utama font-brand">
               {item.title}
@@ -32,11 +44,8 @@ function BlogArticle() {
                 "{item.title}"
               </h2>
 
-              <p className="text-sm font-par leading-relaxed indent-15 text-justify">
-                {item.content1}
-              </p>
               <p className="text-sm font-par leading-relaxed indent-15 text-justify mb-5">
-                {item.content2}
+                {item.content}
               </p>
             </div>
           </div>

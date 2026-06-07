@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import TestimonialSection from "../components/TestimonialSection";
 
 function Home() {
+    
   return (
     <main>
       <img src={homeimg} alt="" className="overflow-hidden" />

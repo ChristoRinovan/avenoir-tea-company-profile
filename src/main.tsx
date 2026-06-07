@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 
 import Layout from "./components/Layout";
-
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -14,6 +13,8 @@ import BlogList from "./pages/BlogList";
 import CreateBlog from "./pages/CreateBlog";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+
+import ProtectedRoute from "./components/ProtectedRoute";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -25,8 +26,12 @@ createRoot(document.getElementById("root")!).render(
           <Route path="products" element={<Products />} />
           <Route path="teams" element={<Teams />} />
           <Route path="blog" element={<BlogList />} />
-          <Route path="create-blog" element={<CreateBlog />} />
           <Route path="login" element={<Login />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="create-blog" element={<CreateBlog />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

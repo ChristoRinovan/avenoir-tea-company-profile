@@ -1,9 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { navMenus } from "../data/NavMenu";
 import { MdMenu } from "react-icons/md";
+import { useAuthStore } from "@/services/useAuthStore";
 // ga perlu import types from navmenus karna udah dibaca ya bang
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+
+  const handleCreateBlogClick = () => {
+    if (!user) {
+      toast.error(
+        <>
+          <div className="text-red-500 font-bold">Anda belum login!</div>
+          <p className="font-bold">Login dahulu untuk mengakses Create Blog Page!</p>
+        </>,
+      );
+      navigate("/login");
+      return;
+    }
+
+    navigate("/create-blog");
+  };
   return (
     <header className="sticky top-0 z-50 font-navbar font-semibold">
       <div className="navbar bg-second shadow-sm px-5 text-utama">
@@ -29,7 +50,17 @@ function Navbar() {
                       <ul className="p-2">
                         {item.children.map((child) => (
                           <li key={child.name}>
-                            <Link to={child.path!}>{child.name}</Link>
+                            {child.path === "/create-blog" ? (
+                              <button
+                                type="button"
+                                onClick={handleCreateBlogClick}
+                                className="w-full text-left"
+                              >
+                                {child.name}
+                              </button>
+                            ) : (
+                              <Link to={child.path!}>{child.name}</Link>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -71,12 +102,22 @@ function Navbar() {
                     <ul className="bg-white rounded-box w-48 p-2 shadow-lg ">
                       {item.children.map((child) => (
                         <li key={child.name}>
-                          <Link
-                            to={child.path!}
-                            className="lg:hover:bg-utama/50"
-                          >
-                            {child.name}
-                          </Link>
+                          {child.path === "/create-blog" ? (
+                            <button
+                              type="button"
+                              onClick={handleCreateBlogClick}
+                              className="w-full text-left lg:hover:bg-utama/50"
+                            >
+                              {child.name}
+                            </button>
+                          ) : (
+                            <Link
+                              to={child.path!}
+                              className="lg:hover:bg-utama/50"
+                            >
+                              {child.name}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -92,10 +133,26 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="navbar-end">
-          <button className=" my-auto   text-utama font-brand font-bold lg:flex hover:scale-115 transition-all duration-700">
-            <Link to="/login">Login</Link>
-          </button>
+        <div className="navbar-end gap-3">
+          {user ? (
+            <>
+              <span className="hidden md:block">Hi, {user.name}</span>
+
+              <button
+                onClick={logout}
+                className="font-brand font-bold hover:scale-115 transition-all duration-700"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="font-brand font-bold hover:scale-115 transition-all duration-700"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </header>
