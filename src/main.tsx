@@ -13,7 +13,7 @@ import BlogList from "./pages/BlogList";
 import CreateBlog from "./pages/CreateBlog";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 createRoot(document.getElementById("root")!).render(
@@ -35,6 +35,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      <SpeedInsights />
     </BrowserRouter>
   </StrictMode>,
 );
