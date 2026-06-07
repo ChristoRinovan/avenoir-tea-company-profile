@@ -2,7 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/services/useAuthStore";
 import { loginFormRules } from "@/types/validation";
-
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 function LoginCard() {
   const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
@@ -26,7 +36,7 @@ function LoginCard() {
     try {
       await login(email, password);
 
-      console.log("Login berhasil");
+      // console.log("Login berhasil");
       navigate("/");
     } catch (error) {
       console.error("Login gagal:", error);
@@ -35,137 +45,52 @@ function LoginCard() {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+    <Card className="w-full max-w-sm bg-second">
+      <form onSubmit={handleLogin}>
+        <CardHeader>
+          <CardTitle>Login to your account</CardTitle>
+          <CardDescription>
+            Enter your email below to login to your account
+          </CardDescription>
+        </CardHeader>
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <CardContent>
+          <div className="flex flex-col gap-6">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="bg-white"
+              />
+            </div>
 
-      <button type="submit">Login</button>
-    </form>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="bg-white"
+              />
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="flex-col gap-2 mt-5">
+          <Button type="submit" className="w-full">
+            Login
+          </Button>
+        </CardFooter>
+      </form>
+    </Card>
   );
 }
 
 export default LoginCard;
-
-// function LoginCard() {
-//   const [email, setCurrentEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const navigate = useNavigate();
-
-//   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-
-//     try {
-//       const user = await loginUser(email, password);
-
-//       console.log("Login berhasil:", user);
-//       navigate("/");
-//     } catch (error) {
-//       console.error("Login gagal:", error);
-//       alert("Email atau password salah.");
-//     }
-//   };
-//   return (
-//     import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { loginUser } from "@/services/authService";
-
-// function LoginCard() {
-//   const navigate = useNavigate();
-
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-
-//     try {
-//       const user = await loginUser(email, password);
-
-//       console.log("Login berhasil:", user);
-
-//       navigate("/");
-//     } catch (error) {
-//       console.error("Login gagal:", error);
-//       alert("Email atau password salah.");
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleLogin}>
-//       <input
-//         type="email"
-//         placeholder="Email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//       />
-
-//       <input
-//         type="password"
-//         placeholder="Password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//       />
-
-//       <button type="submit">Login</button>
-//     </form>
-
-//     // <div>
-//     //   <Card className="w-100 bg-second">
-//     //     <CardHeader>
-//     //       <CardTitle>Login to your account</CardTitle>
-//     //       <CardDescription>
-//     //         Enter your email below to login to your account
-//     //       </CardDescription>
-//     //       <CardAction>
-//     //         <Button variant="link">Sign Up</Button>
-//     //       </CardAction>
-//     //     </CardHeader>
-//     //     <CardContent>
-//     //       <form>
-//     //         <div className="flex flex-col gap-6">
-//     //           <div className="grid gap-2">
-//     //             <Label htmlFor="email">Email</Label>
-//     //             <Input
-//     //               id="email"
-//     //               type="email"
-//     //               placeholder="m@example.com"
-//     //               required
-//     //               className="bg-white"
-//     //             />
-//     //           </div>
-//     //           <div className="grid gap-2">
-//     //             <div className="flex items-center">
-//     //               <Label htmlFor="password">Password</Label>
-//     //             </div>
-//     //             <Input
-//     //               id="password"
-//     //               type="password"
-//     //               required
-//     //               className="bg-white"
-//     //             />
-//     //           </div>
-//     //         </div>
-//     //       </form>
-//     //     </CardContent>
-//     //     <CardFooter className="flex-col gap-2">
-//     //       <Button type="submit" className="w-full">
-//     //         Login
-//     //       </Button>
-//     //     </CardFooter>
-//     //   </Card>
-//     // </div>
-//   );
-// }
-
-// export default LoginCard;
